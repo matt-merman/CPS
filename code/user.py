@@ -187,20 +187,31 @@ def display_linear_regression(id):
     
         return plt
     
+fmm.create_db(DB)
+
 #Scaricare  tutte le serie  da  una  singola categoria (in realtà ne sono sufficienti 3)
 #potrebbe essere necessario creare un db, con fmm.create_db(DB)
-fmm.insert_db(DB, ID_CATEGORY, "series", False)
+fmm.insert_db(DB, ID_CATEGORY, "series", True)
 
 #Per vedere tutte le seriess scaricate, e quindi anche quelle relative a Daily Rates:
 df = fmm.get_db(DB, "seriess", None)
 
 #Scaricare tutte le osservabili per 3 seriess scelte
 for index in range(len(ID_SERIES)):
-    fmm.insert_db(DB, ID_SERIES[index], "observation", False)
+    fmm.insert_db(DB, ID_SERIES[index], "observation", True)
 
 #Graficare le 3 serie su un solo grafico 
 plt = display_observations(ID_SERIES)
-plt.show()
+#plt.show()
+
+#df = fmm.get_db(DB, "observations", None)
+#print(df)
+
+#df = fmm.get_db(DB, "seriess", None)
+#print(df)
+
+#a = fmm.download_insert_tree_category(DB, "11", "category_children", False, [])
+#print(a)
 
 #Calcolare la covarianza (attenzione ai nan!) 
 covariance(ID_SERIES)
@@ -208,8 +219,8 @@ covariance(ID_SERIES)
 #Serie delle differenze prime, differenze prime percentuali e retta di regressione
 for index in range(len(ID_SERIES)):
     plt = display_first_diff(ID_SERIES[index])
-    plt.show()
+    #plt.show()
     plt = display_first_diff_perc(ID_SERIES[index])
-    plt.show()
+    #plt.show()
     plt = display_linear_regression(ID_SERIES[index])
-    plt.show()
+    #plt.show()

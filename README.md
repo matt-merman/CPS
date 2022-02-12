@@ -1,5 +1,11 @@
 # FRED (Federal Reserve Economic Data)
 
+## Info
+
+**Studente**: Di Battista Mattia, 0304938;
+
+**Gruppo**: DylanDog;
+
 ## Specifica
 
 L'obiettivo è definire un package in Python per interagire con le API messe a disposizione da [FRED](https://fred.stlouisfed.org/) (sito fornitore di dati economici, organizzati in categorie). 
